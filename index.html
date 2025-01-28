@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Changer</title>
+    <title>Random iPhone Fact Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,31 +12,61 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0;
             transition: background-color 0.5s;
         }
 
         .container {
             text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Change Background Color</h1>
-        <button id="colorButton">Change Color</button>
+        <h1>Random iPhone Fact</h1>
+        <p id="factDisplay">Click the button to get a fact!</p>
+        <button id="factButton">Get Random Fact</button>
     </div>
     <script>
-        const button = document.getElementById('colorButton');
+        const facts = [
+            "1. The first iPhone was announced by Steve Jobs on January 9, 2007, and it was released on June 29, 2007.",
+            "2. The iPhone popularized the use of capacitive touchscreens, allowing for multi-touch gestures.",
+            "3. The App Store was launched on July 10, 2008, allowing third-party developers to create and sell apps.",
+            "4. As of 2021, Apple has sold over 2.2 billion iPhones since its launch.",
+            "5. The iPhone has advanced smartphone photography with features like Portrait mode and Night mode.",
+            "6. Face ID, introduced with the iPhone X in 2017, uses facial recognition for secure authentication.",
+            "7. Apple provides regular iOS updates, often supporting devices for five years or more.",
+            "8. Apple emphasizes user privacy with features like App Tracking Transparency.",
+            "9. Apple aims to have its entire supply chain and products carbon neutral by 2030.",
+            "10. The iPhone has influenced the design and functionality of various consumer electronics."
+        ];
+
+        const button = document.getElementById('factButton');
+        const factDisplay = document.getElementById('factDisplay');
 
         button.addEventListener('click', () => {
-            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            document.body.style.backgroundColor = randomColor;
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factDisplay.textContent = facts[randomIndex];
         });
     </script>
 </body>
